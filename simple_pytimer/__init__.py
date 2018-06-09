@@ -13,6 +13,8 @@ def human_friendly_duration(seconds):
                 return '{:0.1f} hours'.format(hours)
         else:
             return '{:0.1f} min'.format(minutes)
+    elif seconds < 1:
+        return '{:0.1f} ms'.format(seconds * 1e3)
     else:
         return '{:0.1f} s'.format(seconds)
 
