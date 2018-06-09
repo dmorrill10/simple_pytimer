@@ -15,7 +15,7 @@ clean:
 	-find . -name "*.pyc" -delete
 	-find . -name "__pycache__" -delete
 	-find $(LIB_NAME) -name "*.so" -delete
-	-rm -rf .cache *.egg .eggs *.egg-info build 2> /dev/null
+	-rm -rf .cache *.egg .eggs *.egg-info build .build dist 2> /dev/null
 
 .PHONY: build
 build: .build
@@ -25,9 +25,9 @@ build: .build
 	touch $@
 
 .PHONY: release
-release: .build | dist
+release: .build
 	twine upload dist/*
 
 .PHONY: release-test
-release-test: .build | dist
+release-test: .build
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
