@@ -44,7 +44,8 @@ class Timer(object):
         return self.end_time - self.start_time
 
     def __str__(self):
-        '"{}" block took {}'.format(self.name, self.human_friendly_duration())
+        return '"{}" block took {}'.format(self.name,
+                                           self.human_friendly_duration())
 
     def human_friendly_duration(self):
         return human_friendly_duration(self.seconds())
