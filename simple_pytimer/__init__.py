@@ -72,5 +72,5 @@ class AccumulatingTimer(Timer):
         self.s += time.perf_counter() - self.start_time
         return self
 
-    def duration_s(self):
+    def seconds(self):
         return self.s
