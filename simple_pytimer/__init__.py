@@ -69,7 +69,9 @@ class AccumulatingTimer(Timer):
         return self
 
     def mark(self):
-        self.s += time.perf_counter() - self.start_time
+        next_start_time = time.perf_counter()
+        self.s += next_start_time - self.start_time
+        self.start_time = next_start_time
         return self
 
     def seconds(self):
