@@ -54,12 +54,6 @@ class Timer(object):
 
 
 class AccumulatingTimer(Timer):
-    def __enter__(self, *args, **kwargs):
-        self.restart()
-
-    def __exit__(self, *args, **kwargs):
-        self.mark()
-
     def clear(self):
         self.s = 0
         return self.restart()
